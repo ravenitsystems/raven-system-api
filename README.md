@@ -281,6 +281,11 @@ postgresql-setup --initdb
 systemctl start postgresql
 
 systemctl enable postgresql
+
+cat >/var/lib/pgsql/data/pg_hba.conf <<EOL
+
+EOL
+
 ```
 
 ### Accessing postgres by cmd
