@@ -262,3 +262,31 @@ systemctl enable httpd
 
 systemctl start httpd
 ```
+
+## Postgresql Usefull commands and connection help
+
+### Config file locations
+```
+/var/lib/pgsql/data/postgresql.conf
+/var/lib/pgsql/data/pg_ident.conf
+/var/lib/pgsql/data/pg_hba.conf
+```
+
+### Creating a user for a web app
+```
+sudo -u postgres psql
+```
+
+```
+create database raven;
+
+create user raven with encrypted password 'password123!!';
+
+grant all privileges on database raven to raven;
+```
+
+
+### Restart the server
+```
+service postgresql restart
+```
