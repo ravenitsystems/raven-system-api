@@ -65,7 +65,13 @@ dnf install -y nano wget bind-utils net-tools git zip unzip tar openssl rsync
 
 dnf update -y
 
-dnf install -y certbot python3-certbot-apache 
+dnf install -y certbot python3-certbot-apache
+
+systemctl stop firewalld
+
+systemctl disable firewalld
+
+systemctl mask firewalld
 ```
 
 ### Webserver & PHP Setup
@@ -262,6 +268,22 @@ systemctl enable httpd
 
 systemctl start httpd
 ```
+
+## Postgress Detials
+
+### Installation
+
+```
+dnf -y install postgresql-server
+
+postgresql-setup --initdb
+
+systemctl start postgresql
+
+systemctl enable postgresql
+
+
+``
 
 ## Postgresql Usefull commands and connection help
 
