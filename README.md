@@ -61,7 +61,7 @@ dnf install -y epel-release
 
 dnf -y install https://rpms.remirepo.net/enterprise/remi-release-10.rpm
 
-dnf install -y nano wget bind-utils net-tools git zip unzip tar openssl rsync
+dnf install -y nano wget bind-utils net-tools git zip unzip tar openssl rsync nmap
 
 dnf update -y
 
@@ -281,9 +281,12 @@ postgresql-setup --initdb
 systemctl start postgresql
 
 systemctl enable postgresql
+```
 
-
-``
+### Accessing postgres by cmd
+```
+sudo -u postgres psql
+```
 
 ## Postgresql Usefull commands and connection help
 
