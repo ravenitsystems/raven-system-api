@@ -61,7 +61,7 @@ dnf install -y epel-release
 
 dnf -y install https://rpms.remirepo.net/enterprise/remi-release-10.rpm
 
-dnf install -y nano wget bind-utils net-tools git zip unzip tar openssl
+dnf install -y nano wget bind-utils net-tools git zip unzip tar openssl rsync
 
 dnf update -y
 
