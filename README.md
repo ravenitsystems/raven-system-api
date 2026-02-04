@@ -4,6 +4,25 @@ An experimental project
 
 ## Development Setup
 
+### Local & Private network SSL Certificates
+
+```
+openssl genpkey -algorithm RSA -out "{{domain}}".key
+
+openssl req -x509 -key "{{domain}}".key -out "{{domain}}".crt \
+    -subj "/CN={{domain}}/O={{organisation}}" \
+    -config <(cat /etc/ssl/openssl.cnf - <<END
+[ x509_ext ]
+basicConstraints = critical,CA:true
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer
+subjectAltName = DNS:{{domain}}
+END
+    ) -extensions x509_ext
+
+trust anchor "{{domain}}".crt
+
+```
 
 
 
@@ -42,7 +61,7 @@ dnf install -y epel-release
 
 dnf -y install https://rpms.remirepo.net/enterprise/remi-release-10.rpm
 
-dnf install -y nano wget bind-utils net-tools git zip unzip tar 
+dnf install -y nano wget bind-utils net-tools git zip unzip tar openssl
 
 dnf update -y
 
