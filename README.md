@@ -5,7 +5,6 @@ An experimental project
 ## Development Setup
 
 ### Local & Private network SSL Certificates
-
 ```
 openssl genpkey -algorithm RSA -out "{{domain}}".key
 
